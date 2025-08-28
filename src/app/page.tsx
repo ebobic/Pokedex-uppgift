@@ -2,9 +2,13 @@ import Image from "next/image";
 import Searchbar from "@/components/searchbar";
 import PokeCard from "@/components/pokecard";
 import getPokemonById from "@/lib/data/pokemon";
+import { getRandomPokemonIds } from "@/lib/data/randompokemons";
 
 export default async function Home() {
-  const pokemon = await getPokemonById(1);
+  const randomIds = getRandomPokemonIds(4);
+  const pokemons = await Promise.all(
+    randomIds.map(id => getPokemonById(id))
+  );
 
   return (
     <main>
@@ -30,7 +34,11 @@ export default async function Home() {
       {/* Featured pokemons */}
       <section className="flex flex-col items-center bg-indigo-50">
         <h2 className="text-3xl p-10">Featured Pokémon</h2>
-        <PokeCard pokemon={pokemon}/>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
+          {pokemons.map((pokemon) => (
+            <PokeCard key={pokemon.id} pokemon={pokemon} />
+          ))}
+        </div>
       </section>
       
     </main>
