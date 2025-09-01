@@ -3,17 +3,22 @@ import Image from 'next/image';
 
 export default function Searchbar() {
     return (
-        <Form action="/search" className="flex items-align justify-between w-2/5 shadow-md/25  rounded-md p-3 ">
+        <Form action="/search" className="flex items-center justify-between w-full max-w-lg shadow-lg rounded-lg p-3 bg-white">
             {/* On submission, the input value will be appended to
                 the URL, e.g. /search?query=abc */}
-            <input name="query" placeholder="Search for a Pokémon..."/>
-            <button type="submit" className="bg-indigo-400 rounded-md px-1">
+            <input 
+                name="query" 
+                placeholder="Search for a Pokémon..." 
+                className="flex-1 outline-none text-gray-700 placeholder-gray-400 text-sm sm:text-base"
+                required
+            />
+            <button type="submit" className="bg-indigo-500 hover:bg-indigo-600 rounded-md p-1 sm:p-2 transition-colors">
                 <Image
                     src="/Search.svg"
-                    alt=""
-                    width={20}
-                    height={20}
-                    className="p-1"
+                    alt="Search"
+                    width={16}
+                    height={16}
+                    className="p-0.5 sm:p-1"
                 />
             </button>
         </Form>
