@@ -1,13 +1,29 @@
 import Image from "next/image";
+import type { Pokemon } from "@/lib/interfaces/pokemon";
 
-interface Pokemon {
-    image: string;
-    id: number;
-    name: string;
-    types: string[];
-    hp: number;
-    attack: number;
-    defense: number;
+// Helper function to get type styling
+function getTypeStyle(type: string): string {
+    const typeStyles: { [key: string]: string } = {
+        grass: "bg-green-500",
+        fire: "bg-orange-600",
+        water: "bg-blue-500",
+        electric: "bg-yellow-400",
+        bug: "bg-lime-600",
+        poison: "bg-fuchsia-800",
+        flying: "bg-indigo-400",
+        normal: "bg-gray-400",
+        psychic: "bg-pink-500",
+        ground: "bg-yellow-600",
+        rock: "bg-yellow-800",
+        ice: "bg-cyan-400",
+        ghost: "bg-purple-600",
+        dragon: "bg-indigo-600",
+        dark: "bg-gray-800",
+        steel: "bg-gray-500",
+        fairy: "bg-pink-300"
+    };
+    
+    return typeStyles[type] || "bg-gray-400"; // fallback to normal if type not found
 }
 
 export default function PokeCard({ pokemon }: { pokemon: Pokemon }) {
@@ -28,16 +44,7 @@ export default function PokeCard({ pokemon }: { pokemon: Pokemon }) {
                 {pokemon.types.map((type: string, idx: number) => (
                 <span
                     key={idx}
-                    className={`px-2 rounded-full text-white text-sm capitalize 
-                    ${type === "grass" && "bg-green-500"}
-                    ${type === "fire" && "bg-orange-600"}
-                    ${type === "water" && "bg-blue-500"}
-                    ${type === "electric" && "bg-yellow-400"}
-                    ${type === "bug" && "bg-lime-600"}
-                    ${type === "poison" && "bg-fuchsia-800"}
-                    ${type === "flying" && "bg-indigo-400"}
-                    ${type === "normal" && "bg-gray-400"}
-                    `}
+                    className={`px-2 rounded-full text-white text-sm capitalize ${getTypeStyle(type)}`}
                 >
                     {type}
                 </span>
