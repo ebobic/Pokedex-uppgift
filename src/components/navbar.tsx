@@ -15,10 +15,10 @@ export default function Navbar() {
                     <li className="font-jersey text-2xl text-transparent bg-gradient-to-r from-purple-800 to-blue-800 [background-clip:text]">Pokédex</li>
                 </div>
                 <div className="flex gap-6">
-                    <li><Link href="">Home</Link></li>
-                    <li><Link href="">Pokedex</Link></li>
-                    <li><Link href="">Types</Link></li>
-                    <li><Link href="">Favourites</Link></li>
+                    <li><Link href="/">Home</Link></li>
+                    <li><Link href="/search">Pokedex</Link></li>
+                    <li><Link href="/types">Types</Link></li>
+                    <li><Link href="/favourites">Favourites</Link></li>
                 </div>
             </ul>
         </nav>
