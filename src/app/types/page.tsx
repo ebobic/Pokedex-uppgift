@@ -1,14 +1,16 @@
-import { Suspense } from "react";
+"use client";
+
+import { Suspense, useState } from "react";
 import Link from "next/link";
-import TypesSidebar from "@/components/typessidebar";
-import PokemonByType from "@/components/pokemonbytype";
+import TypesSidebar from "@/components/types/typessidebar";
+import PokemonByType from "@/components/types/pokemonbytype";
 
 interface TypesPageProps {
     searchParams: { type?: string };
 }
 
 export default function TypesPage({ searchParams}: TypesPageProps) {
-    const selectedType = searchParams.type || '';
+  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
 
     return (
         <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -32,13 +34,27 @@ export default function TypesPage({ searchParams}: TypesPageProps) {
          <div className="max-w-7xl mx-auto p-8">
         <div className="flex gap-12">
           {/* Sidebar */}
-          <div className="w-72 flex-shrink-0">
-            <TypesSidebar />
+                    {/* Sidebar */}
+                    <div className="w-72 flex-shrink-0">
+            <TypesSidebar 
+              selectedTypes={selectedTypes} 
+              setSelectedTypes={setSelectedTypes} 
+            />
           </div>
           
-          {/* Main content */}
+                    {/* Main content */}
           <div className="flex-1">
-            <PokemonByType selectedTypes={[]} />
+            <Suspense fallback={
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h2 className="text-2xl font-semibold text-gray-800 mb-6">Pokémon by Type</h2>
+                <div className="text-center py-16">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto mb-4"></div>
+                  <p className="text-gray-500">Loading...</p>
+                </div>
+              </div>
+            }>
+              <PokemonByType selectedTypes={selectedTypes} />
+            </Suspense>
           </div>
         </div>
       </div>
