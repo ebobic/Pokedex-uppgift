@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function NotFound() {
   return (
@@ -11,7 +10,7 @@ export default function NotFound() {
         
         {/* Error message */}
         <p className="text-lg text-gray-300 mb-8">
-          The page you're looking for doesn't exist.
+          The page you&apos;re looking for doesn&apos;t exist.
         </p>
         
         {/* Home button */}

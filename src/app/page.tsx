@@ -1,9 +1,12 @@
-import Image from "next/image";
+import { Suspense } from "react";
 import Searchbar from "@/components/searchbar";
 import PokeCard from "@/components/pokemon/pokecard";
 import RandomButton from "@/components/randombutton";
 import getPokemonById from "@/lib/data/pokemon";
 import { getRandomPokemonIds } from "@/lib/data/randompokemons";
+
+// ISR: Uppdatera sidan varje timme
+export const revalidate = 3600;
 
 export default async function Home() {
   const randomIds = getRandomPokemonIds(4);
@@ -15,9 +18,17 @@ export default async function Home() {
     <main>
       {/* Hero */}
       <section className="flex flex-col items-center gap-4 bg-gradient-to-br from-gray-800 to-gray-900 p-14">
-        <h1 className="text-center mt-14 text-8xl font-extrabold text-white">Gotta catch 'em all!</h1>
+        <h1 className="text-center mt-14 text-8xl font-extrabold text-white">Gotta catch &apos;em all!</h1>
         <p className="text-center text-white text-xl">Discover, search and explore the amazing world of Pokémon. Find<br /> your favourite and learn about their stats.</p>
-        <RandomButton />
+        <Suspense fallback={
+          <div className="animate-pulse">
+            <div className="bg-red-500 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg">
+              Loading...
+            </div>
+          </div>
+        }>
+          <RandomButton />
+        </Suspense>
       </section>
 
       {/* Search for a pokemon! */}

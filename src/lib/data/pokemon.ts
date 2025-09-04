@@ -1,7 +1,12 @@
 import { PokeType } from "../types/poketypes";
 
+// ISR: Uppdatera data varje timme
+export const revalidate = 3600;
+
 async function getPokemonById(id: number) {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
+            next: { revalidate: 3600 } // Uppdatera varje timme
+        });
         const data = await response.json();
         
         return {

@@ -39,7 +39,7 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
               Enter a Pokémon name to search
             </h2>
             <p className="text-gray-500">
-              Try searching for names like "pikachu", "charizard", or "bulbasaur"
+              Try searching for names like &quot;pikachu&quot;, &quot;charizard&quot;, or &quot;bulbasaur&quot;
             </p>
           </div>
         )}

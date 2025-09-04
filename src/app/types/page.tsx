@@ -5,11 +5,7 @@ import Link from "next/link";
 import TypesSidebar from "@/components/types/typessidebar";
 import PokemonByType from "@/components/types/pokemonbytype";
 
-interface TypesPageProps {
-    searchParams: { type?: string };
-}
-
-export default function TypesPage({ searchParams}: TypesPageProps) {
+export default function TypesPage() {
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
 
     return (

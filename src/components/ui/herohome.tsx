@@ -5,7 +5,7 @@ export default function Hero() {
     // Updated with dark gray gradient
     return (
         <section className="flex flex-col items-center gap-4 bg-gradient-to-br from-gray-800 to-gray-900 p-14">
-            <h1 className="text-center mt-14 text-8xl font-extrabold text-white">Gotta catch 'em all!</h1>
+            <h1 className="text-center mt-14 text-8xl font-extrabold text-white">Gotta catch &apos;em all!</h1>
             <p className="text-center text-white text-xl">Discover, search and explore the amazing world of Pokémon. Find<br /> your favourite and learn about their stats.</p>
             
             {/* Button that fetches a random Pokémon when clicked */}

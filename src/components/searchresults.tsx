@@ -19,7 +19,7 @@ async function searchPokemon(query: string): Promise<Pokemon | null> {
       id: data.id,
       name: data.name,
       image: data.sprites.other["official-artwork"].front_default,
-      types: data.types.map((t: any) => t.type.name),
+      types: data.types.map((t: { type: { name: string } }) => t.type.name),
       hp: data.stats[0].base_stat,
       attack: data.stats[1].base_stat,
       defense: data.stats[2].base_stat,
@@ -40,7 +40,7 @@ async function searchPokemon(query: string): Promise<Pokemon | null> {
           No Pokémon found
         </h2>
         <p className="text-gray-500 mb-4">
-          We couldn't find a Pokémon named "{query}"
+          We couldn&apos;t find a Pokémon named &quot;{query}&quot;
         </p>
         <p className="text-sm text-gray-400">
           Try checking the spelling or search for a different Pokémon
@@ -52,7 +52,7 @@ async function searchPokemon(query: string): Promise<Pokemon | null> {
   return (
     <div>
       <h2 className="text-2xl font-semibold text-gray-800 mb-6">
-        Search Results for "{query}"
+        Search Results for &quot;{query}&quot;
       </h2>
       <div className="flex justify-center">
         <div className="w-64 h-80">
