@@ -9,6 +9,9 @@ export default function Error({
   error: Error;
   reset: () => void;
 }) {
+  // Use error parameter to avoid ESLint warning
+  console.log('Error occurred:', error.message);
+  
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-xl">
@@ -16,6 +19,13 @@ export default function Error({
         <p className="text-lg text-gray-800 mb-6">
           Something went wrong. Please try again later.
         </p>
+        {process.env.NODE_ENV === 'development' && (
+          <div className="mb-6 p-4 bg-red-100 border border-red-300 rounded-lg">
+            <p className="text-red-700 text-sm font-mono break-all">
+              {error.message}
+            </p>
+          </div>
+        )}
         <button
           onClick={reset}
           className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors"

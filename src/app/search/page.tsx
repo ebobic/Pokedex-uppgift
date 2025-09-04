@@ -3,17 +3,21 @@ import Link from 'next/link';
 import SearchResults from '@/components/searchresults';
 import Searchbar from '@/components/searchbar';
 
+// ISR: Uppdatera sidan varje timme
+export const revalidate = 3600;
+
 interface SearchPageProps {
-  searchParams: { query?: string };
+  searchParams: Promise<{ query?: string }>;
 }
 
-export default function SearchPage({ searchParams }: SearchPageProps) {
-  const query = searchParams.query || '';
+export default async function SearchPage({ searchParams }: SearchPageProps) {
+  const { query } = await searchParams;
+  const queryValue = query || '';
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Header */}
-              <section className="bg-gray-800 text-white p-8">
+      <section className="bg-gray-800 text-white p-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-4">Search Pokémon</h1>
           <p className="text-lg mb-6">Find your favorite Pokémon by name</p>
@@ -29,9 +33,9 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
           </Link>
         </div>
         
-        {query ? (
+        {queryValue ? (
           <Suspense fallback={<div className="text-center py-8">Searching...</div>}>
-            <SearchResults query={query} />
+            <SearchResults query={queryValue} />
           </Suspense>
         ) : (
           <div className="text-center py-16">
