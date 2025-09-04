@@ -13,7 +13,7 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Header */}
-      <section className="bg-gradient-to-r from-gray-700 to-gray-800 text-white p-8">
+              <section className="bg-gray-800 text-white p-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-4">Search Pokémon</h1>
           <p className="text-lg mb-6">Find your favorite Pokémon by name</p>
