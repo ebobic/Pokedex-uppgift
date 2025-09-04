@@ -14,9 +14,13 @@ function generateRandomPokemon(): Pokemon {
         name: randomName,
         image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${randomId}.png`,
         types: [randomType],
-        hp: Math.floor(Math.random() * 100) + 50,
-        attack: Math.floor(Math.random() * 100) + 50,
-        defense: Math.floor(Math.random() * 100) + 50,
+        height: Math.floor(Math.random() * 100) + 50,
+        weight: Math.floor(Math.random() * 100) + 50,
+        stats: [
+            { name: "hp", value: Math.floor(Math.random() * 100) + 50 },
+            { name: "attack", value: Math.floor(Math.random() * 100) + 50 },
+            { name: "defense", value: Math.floor(Math.random() * 100) + 50 }
+        ]
     };
 }
 

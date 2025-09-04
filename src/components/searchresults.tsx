@@ -18,11 +18,14 @@ async function searchPokemon(query: string): Promise<Pokemon | null> {
     return {
       id: data.id,
       name: data.name,
-      image: data.sprites.other["official-artwork"].front_default,
+      image: data.sprites.other["official-artwork"].front_default || data.sprites.front_default,
       types: data.types.map((t: { type: { name: string } }) => t.type.name),
-      hp: data.stats[0].base_stat,
-      attack: data.stats[1].base_stat,
-      defense: data.stats[2].base_stat,
+      height: data.height,
+      weight: data.weight,
+      stats: data.stats.map((s: { stat: { name: string }, base_stat: number }) => ({
+        name: s.stat.name,
+        value: s.base_stat
+      }))
     };
   } catch (error) {
     console.error('Error searching for Pokemon:', error);
