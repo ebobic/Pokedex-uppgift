@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import getPokemonById from "@/lib/data/pokemon";
-import PokeCard from "./pokecard";
+import PokeCard from "./pokemon/pokecard";
 import { useState } from "react";
 import type { Pokemon } from "@/lib/interfaces/pokemon";
 

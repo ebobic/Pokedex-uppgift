@@ -1,4 +1,4 @@
-import PokeCard from './pokecard';
+import PokeCard from './pokemon/pokecard';
 import type { Pokemon } from '@/lib/interfaces/pokemon';
 
 interface SearchResultsProps {

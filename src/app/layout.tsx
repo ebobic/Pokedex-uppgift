@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Jaldi, Jersey_10 } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "@/components/ui/navbar";
+import Footer from "@/components/ui/footer";
 
 const jaldi = Jaldi({
   subsets: ["latin"],

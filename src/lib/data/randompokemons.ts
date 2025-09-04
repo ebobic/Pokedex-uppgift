@@ -1,4 +1,4 @@
-// Random pokemon with it 1-1025!)
+// Random pokemon with id 1-1025!)
 export function getRandomPokemonIds(count: number): number[] {
     const ids: number[] = [];
     const usedIds = new Set<number>();

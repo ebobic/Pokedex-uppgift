@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Searchbar from "@/components/searchbar";
-import PokeCard from "@/components/pokecard";
+import PokeCard from "@/components/pokemon/pokecard";
 import RandomButton from "@/components/randombutton";
 import getPokemonById from "@/lib/data/pokemon";
 import { getRandomPokemonIds } from "@/lib/data/randompokemons";
