@@ -55,7 +55,9 @@ async function searchPokemon(query: string): Promise<Pokemon | null> {
         Search Results for "{query}"
       </h2>
       <div className="flex justify-center">
-        <PokeCard pokemon={pokemon} />
+        <div className="w-64 h-80">
+          <PokeCard pokemon={pokemon} />
+        </div>
       </div>
     </div>
   );

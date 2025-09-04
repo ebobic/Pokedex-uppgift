@@ -6,8 +6,8 @@ export default function Footer() {
         <footer className="flex flex-col items-center bg-neutral-700 text-neutral-50 p-12">
             <div className="flex gap-4">
                 <Image
-                    src="/Logo.png"
-                    alt=""    
+                    src="/pokeball-simple.svg"
+                    alt="Pokeball Logo"    
                     width={40}
                     height={40}
                 />

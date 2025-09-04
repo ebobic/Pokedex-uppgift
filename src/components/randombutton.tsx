@@ -35,7 +35,9 @@ export default function RandomButton() {
             {/* If "randomPokemon" exists (not null), show the Pokémon card */}
             {randomPokemon && (
                 <section className="flex justify-center">
-                <PokeCard pokemon={randomPokemon} />
+                <div className="w-64 h-80">
+                  <PokeCard pokemon={randomPokemon} />
+                </div>
                 </section>
             )}
         </>
