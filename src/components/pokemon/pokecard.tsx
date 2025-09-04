@@ -80,18 +80,12 @@ export default function PokeCard({ pokemon }: { pokemon: Pokemon }) {
             {/* Pokemon stats */}
             <div className="w-full px-4 mt-4">
                 <div className="space-y-2">
-                    <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium">HP</span>
-                        <span className="text-sm font-semibold">{pokemon.hp}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium">Attack</span>
-                        <span className="text-sm font-semibold">{pokemon.attack}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium">Defense</span>
-                        <span className="text-sm font-semibold">{pokemon.defense}</span>
-                    </div>
+                    {pokemon.stats.slice(0, 3).map((stat, index) => (
+                        <div key={index} className="flex justify-between items-center">
+                            <span className="text-sm font-medium capitalize">{stat.name}</span>
+                            <span className="text-sm font-semibold">{stat.value}</span>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

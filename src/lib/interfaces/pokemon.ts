@@ -3,7 +3,10 @@ export interface Pokemon {
     id: number;
     name: string;
     types: string[];
-    hp: number;
-    attack: number;
-    defense: number;
+    height: number;
+    weight: number;
+    stats: {
+        name: string;
+        value: number;
+    }[];
 }

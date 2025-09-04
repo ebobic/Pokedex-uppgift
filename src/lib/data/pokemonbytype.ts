@@ -1,6 +1,3 @@
-// ISR: Uppdatera data varje timme
-export const revalidate = 3600;
-
 // Hämtar lista över Pokémon av en specifik typ!
 export async function getPokemonByType(type: string) {
   try {
